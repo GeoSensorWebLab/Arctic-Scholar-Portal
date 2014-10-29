@@ -18,11 +18,7 @@
   "dependencies": {
     "bootstrap": "~3.2.0",
     "backbone": "~1.1.2",
-    "jquery-deparam": "~0.2.0",
-    "highstock-release": "~2.0.3",
-    "geocens-js-api": "Canarie-Sensor-RPI/geocens-js-api#~1.2.5",
     "marionette": "~2.1.0",
-    "backbone.hal": "*",
-    "proj4leaflet": "kartena/Proj4Leaflet#4e445dd765d4e5cfcb156e423c6a0b7b65adf535"
+    "backbone.hal": "*"
   }
 }
