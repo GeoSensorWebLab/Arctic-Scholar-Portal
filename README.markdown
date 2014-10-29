@@ -1,6 +1,6 @@
-# Arctic Sensor Web Workbench
+# Arctic Scholar Portal
 
-The ASW Workbench is a JavaScript Single-Page Application frontend to the GeoCENS Data Service. It is a customized version of the RPI Workbench and will have a more focused feature set. This means it will be designed to display Arctic Sensor Web data instead of generic sensor data.
+The Arctic Scholar Portal is an integration of the Arctic Scholar backend service and PolarMap.js for the frontend geographic viewer. It is a JavaScript Single-Page Application.
 
 ## Development Environment
 
@@ -22,64 +22,6 @@ That's all. The server is now running at [http://localhost:1337/](http://localho
 
 Bower is for packages that are sent to the client; Node packages are used for the server only. Each system also has different dependency resolution systems, where Bower is optimized for the web browser.
 
-### generate.js
-
-This script will generate a JSON array of dummy record objects, with random data for values. The array can then be uploaded into the Data Service using `bin/push` or `bin/ppush`. Usage:
-
-  $ node generate.js 2014-07-01T00:00:00Z 2014-07-31T23:59:59Z uniform > output.json
-
-Start and end dates must be ISO format. Last parameter can be `uniform` or `normal`, and determines which random function is used for the values.
-
-### weather.js
-
-Script to download historical weather data from Environment Canada. Data disclaimers apply.
-
-    Usage: $0 -t <timeframe> -s <station ID> -Y <year> -m <month> -d <day>
-    
-    -t: timeframe to retrieve. '1' corresponds to hourly.
-    -s: station ID.
-    -Y: Year. e.g. 2014
-    -m: Month. e.g. 8 (no leading zero)
-    -d: Day. e.g. 11 (no leading zero)
-
-Output is CSV stream.
-
-### weather-json.js
-
-Converts CSV output from weather.js to a JSON file. This can then be parsed and uploaded to the GeoCENS Data Service.
-
-    Usage: $0 <CSV file> -z <station time zone>
-    
-    -z: Time zone identifier of the station.
-
-Yes, the time zone must be specified manually. This is because Environment Canada returns times in Local Standard Time, which is unknown. So the user (you) must tell the parser where the date is located to properly adjust it to UTC.
-
-Output is a JSON stream.
-
-### convert.js
-
-Converts output from weather-json.js to a format ready for push.js.
-
-    Usage: $0 <JSON file> <datastream name>
-
-Datastream name is usually the field you want to create datastream for, e.g. "tempC" or "relHum".
-
-### "push" and "ppush"
-
-**NOTE**: These files require Ruby and some Ruby gems to be installed.
-
-These two scripts in the `bin` directory can take a JSON file containing an array from the `generate.html` page and upload each record individually into the Data Service. `ppush` is the parallelized version of `push`, and runs about three times faster on my development machine. If `ppush` uploads too fast for some reason, try `push` instead.
-
-1. Create JSON array of records using `generate.html`
-2. Save JSON string to file in root directory, say `f.json`
-3. From the command line, run `ppush` on the file with a known endpoint URL (MUST point to the records resource for a datastream):
-
-	`$ bin/ppush --file=f.json --url="http://dataservice.geocens.ca/users/<user_id>/sensors/<sensor_id>/datastreams/<datastream_id>/records"`
-
-4. Watch as the POST requests are completed, "200 OK" means the Data Service received the request
-5. Verify the records uploaded by doing a GET request to "http://dataservice.geocens.ca/users/<user_id>/sensors/<sensor_id>/datastreams/<datastream_id>/records"
-6. Delete `f.json`
-
 ## Testing
 
 TODO
@@ -88,9 +30,9 @@ TODO
 
 This app is configured to run on Heroku-like platforms. This makes deployment as simple as a `git push`. In this instance, we are using [Dokku](https://github.com/progrium/dokku).
 
-Start by setting up a Dokku instance on a server. Once it is online, you should be able to add it as a remote repository, and tell Dokku the app's name is `asw-workbench`:
+Start by setting up a Dokku instance on a server. Once it is online, you should be able to add it as a remote repository, and tell Dokku the app's name is `as-portal`:
 
-    $ git remote add dokku dokku@sarcee:asw-workbench
+    $ git remote add dokku dokku@sarcee:as-portal
 
 Next, push master to that remote host. Note that Dokku only supports receiving from master at this time.
 
@@ -100,9 +42,9 @@ Dokku will then build and deploy a server, automatically restarting the existing
 
 There are also some configuration options that may be useful with Dokku. For example, defining the default host:
 
-    $ ssh dokku@sarcee domains:set asw-workbench sensorweb.arcticconnect.org
+    $ ssh dokku@sarcee domains:set as-portal arcticscholar.arcticconnect.org
 
-This tells the nginx instance running in Dokku to redirect requests to http://sensorweb.arcticconnect.org to this Node.js server.
+This tells the nginx instance running in Dokku to redirect requests to http://arcticscholar.arcticconnect.org to this Node.js server.
 
 ## License
 
