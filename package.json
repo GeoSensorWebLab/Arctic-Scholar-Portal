@@ -33,7 +33,6 @@
     "logfmt": "^1.1.2",
     "mincer": "^1.1.2",
     "node-sass": "^0.9.3",
-    "polarmap.js": "git+ssh://git@bitbucket.org:geosensorweblab/polarmap.js.git#v0.6.1",
     "request": "^2.40.0",
     "tiny-lr": "0.0.9"
   }
