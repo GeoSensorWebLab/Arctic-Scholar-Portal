@@ -1,0 +1,30 @@
+//= require 'DataTables/media/css/jquery.dataTables'
+
+.hide {
+  display: none;
+}
+
+.leaflet-control-datatable {
+  border-radius: 7px;
+  background: #FFF;
+  margin: 10px 0 0 0;
+  padding: 15px;
+  width: 200%;
+  height: auto;
+}
+
+table.dataTable thead .sorting {
+  background: url('<%= asset_path("DataTables/media/images/sort_both.png") %>') no-repeat center right;
+}
+table.dataTable thead .sorting_asc {
+  background: url('<%= asset_path("DataTables/media/images/sort_asc.png") %>') no-repeat center right;
+}
+table.dataTable thead .sorting_desc {
+  background: url('<%= asset_path("DataTables/media/images/sort_desc.png") %>') no-repeat center right;
+}
+table.dataTable thead .sorting_asc_disabled {
+  background: url('<%= asset_path("DataTables/media/images/sort_asc_disabled.png") %>') no-repeat center right;
+}
+table.dataTable thead .sorting_desc_disabled {
+  background: url('<%= asset_path("DataTables/media/images/sort_desc_disabled.png") %>') no-repeat center right;
+}

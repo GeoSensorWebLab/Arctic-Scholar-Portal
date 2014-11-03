@@ -1,0 +1,3 @@
+window.ArcticScholar = {
+  Control: {}
+}

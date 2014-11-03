@@ -22,7 +22,7 @@ gulp.task('express', function() {
     buildDir: 'dist',
     gzip: true
   });
-  assets.mincer.MacroProcessor.configure(['.js']);
+  assets.mincer.MacroProcessor.configure(['.js', '.css']);
   app.use(assets);
 
   app.listen(1337);

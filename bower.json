@@ -23,7 +23,8 @@
     "polarmap.js": "git@bitbucket.org:geosensorweblab/polarmap.js.git#v0.6.2",
     "leaflet": "~0.7.3",
     "proj4": "~2.3.3",
-    "proj4leaflet": "https://github.com/kartena/Proj4Leaflet.git#master"
+    "proj4leaflet": "https://github.com/kartena/Proj4Leaflet.git#master",
+    "DataTables": "~1.10.3"
   },
   "resolutions": {
     "proj4": "~2.3.3"

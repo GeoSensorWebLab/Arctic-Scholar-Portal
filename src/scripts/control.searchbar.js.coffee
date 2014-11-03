@@ -1,7 +1,3 @@
-window.ArcticScholar = {
-  Control: {}
-}
-
 ArcticScholar.Control.Searchbar = L.Control.extend({
   options:
     noResultsText: 'No Results'
