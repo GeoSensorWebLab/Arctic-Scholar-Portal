@@ -37,7 +37,9 @@ ArcticScholar.Search = L.Class.extend({
   highlightMarker: (SISN) ->
     @resultMarkers.eachLayer((marker) ->
       if (marker.options.SISN is SISN)
-        @resultMarkers.zoomToShowLayer(marker, ->)
+        @resultMarkers.zoomToShowLayer(marker, ->
+          marker.fire('click')
+        )
     , this)
 
   highlightResult: (SISN) ->
@@ -67,9 +69,22 @@ ArcticScholar.Search = L.Class.extend({
       marker = L.marker([location.lat, location.lon], {
         title: result._source.TI
         SISN: result._source.SISN
+        data: result._source
       })
-      marker.on 'click', (e) ->
-        search.highlightResult(this.options.SISN)
+
+      # Marker click for popup details
+      L.DomEvent.on marker, 'click', ->
+        div = L.DomUtil.create('div')
+        title = L.DomUtil.create('h1', 'markerTitle', div)
+        title.innerHTML = this.options.data.TI
+        L.DomEvent.on(title, 'click', =>
+          search.highlightResult(this.options.SISN)
+        )
+
+        desc = L.DomUtil.create('p', 'markerDesc', div)
+        desc.innerHTML = this.options.data.AB
+
+        this.bindPopup(div).openPopup()
 
       marker
     else
