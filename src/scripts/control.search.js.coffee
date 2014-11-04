@@ -111,7 +111,8 @@ ArcticScholar.Search = L.Class.extend({
       method: 'get'
       url: 'http://scholar.arcticconnect.org:9200/arctic/_search'
       data:
-        q: "GH:#{query}"
+        q: "GH:*#{query}*"
+        size: 100
     }).done((results) =>
       @_addResults(results.hits.hits)
     )
