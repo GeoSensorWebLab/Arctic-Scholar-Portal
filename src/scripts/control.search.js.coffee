@@ -8,10 +8,13 @@ ArcticScholar.Search = L.Class.extend({
     })
 
     @datatable = ArcticScholar.Control.dataTable({
+      onCellClick: (e, obj, data) =>
+        @highlightMarker(data._source.SISN)
+
       table:
         columns: [
           { data: '_source.SISN', title: 'SISN' }
-          { data: '_source.TI', title: 'Title' }
+          { data: '_source.TI', title: 'Title', className: 'titleCell' }
           { data: '_source.DM', title: 'Date Modified' }
           { data: '_source.gh.0.GH', title: 'Geographic' }
           { data: '_source.SH.0', title: 'Subject Heading' }
@@ -30,6 +33,12 @@ ArcticScholar.Search = L.Class.extend({
     @layersControl = options.layersControl
     @searchBar.addTo(@map)
     @datatable.addTo(@map)
+
+  highlightMarker: (SISN) ->
+    @resultMarkers.eachLayer((marker) ->
+      if (marker.options.SISN is SISN)
+        @resultMarkers.zoomToShowLayer(marker, ->)
+    , this)
 
   highlightResult: (SISN) ->
     @datatable.table.search(SISN).draw()

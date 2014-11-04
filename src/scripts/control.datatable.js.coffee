@@ -1,5 +1,6 @@
 ArcticScholar.Control.DataTable = L.Control.extend({
   options:
+    onCellClick: ->
     position: 'bottomleft'
     show: false
 
@@ -20,6 +21,8 @@ ArcticScholar.Control.DataTable = L.Control.extend({
     L.Util.extend(this.tableOptions, options.table)
 
   onAdd: (map) ->
+    control = this
+
     # create the container
     @_container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-datatable')
     @_container.setAttribute('aria-haspopup', true)
@@ -41,6 +44,10 @@ ArcticScholar.Control.DataTable = L.Control.extend({
     resultsTable = L.DomUtil.create('table', '', @_container)
 
     @table = $(resultsTable).DataTable(@tableOptions)
+    $(resultsTable).on 'click', 'td', (e) ->
+      row = control.table.cell(this)[0][0].row
+      data = control.table.row(row).data()
+      control.options.onCellClick(e, this, data)
 
     @_container
 
