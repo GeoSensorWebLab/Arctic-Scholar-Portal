@@ -13,7 +13,6 @@ require('./routes')(app);
 assets = assets({
   paths: [
     'src/scripts',
-    'src/images',
     'src/stylesheets',
     'src/views',
     'bower_components'
@@ -24,6 +23,7 @@ assets = assets({
 assets.mincer.MacroProcessor.configure(['.js']);
 
 app.use(assets);
+app.use('/images', express.static(__dirname + '/src/images'));
 
 app.listen(port);
 console.log('Listening on port: ' + port);

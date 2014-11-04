@@ -25,6 +25,8 @@ gulp.task('express', function() {
   assets.mincer.MacroProcessor.configure(['.js', '.css']);
   app.use(assets);
 
+  app.use('/images', express.static('./src/images'));
+
   app.listen(1337);
   $.util.log('Listening on port: 1337');
 });

@@ -5,6 +5,8 @@
 #= require 'control.search'
 #= require_self
 
+L.Icon.Default.imagePath = "/images"
+
 $(->
   Autosize.enable()
   window.pMap = polarMap('app')
