@@ -31,12 +31,14 @@ ArcticScholar.Search = L.Class.extend({
     @searchBar.addTo(@map)
     @datatable.addTo(@map)
 
+  highlightResult: (SISN) ->
+    @datatable.table.search(SISN).draw()
+
   _addLayer: (layer) ->
     if @layersControl isnt undefined
       @layersControl.addOverlay(layer, 'Results')
-      @map.addLayer(layer)
-    else
-      @map.addLayer(layer)
+
+    @map.addLayer(layer)
 
   _addResults: (results) ->
     @datatable.show()
@@ -49,11 +51,18 @@ ArcticScholar.Search = L.Class.extend({
     @_addLayer(@resultMarkers)
 
   _generateMarker: (result) ->
+    search = this
+
     location = @_getLocation(result)
     if (location isnt null)
-      L.marker([location.lat, location.lon], {
+      marker = L.marker([location.lat, location.lon], {
         title: result._source.TI
+        SISN: result._source.SISN
       })
+      marker.on 'click', (e) ->
+        search.highlightResult(this.options.SISN)
+
+      marker
     else
       null
 
