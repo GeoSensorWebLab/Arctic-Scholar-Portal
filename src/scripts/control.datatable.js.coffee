@@ -34,6 +34,10 @@ ArcticScholar.Control.DataTable = L.Control.extend({
 
     @hide() unless @options.show
 
+    closeButton = L.DomUtil.create('button', 'leaflet-control-datatable-close', @_container)
+    closeButton.innerHTML = "X"
+    L.DomEvent.on(closeButton, 'click', @hide, this)
+
     resultsTable = L.DomUtil.create('table', '', @_container)
 
     @table = $(resultsTable).DataTable(@tableOptions)
