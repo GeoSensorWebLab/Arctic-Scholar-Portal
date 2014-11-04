@@ -10,5 +10,7 @@ $(->
   window.pMap = polarMap('app')
 
   search = ArcticScholar.search()
-  search.addTo(pMap.map)
+  search.addTo(pMap.map, {
+    layersControl: pMap.layersControl
+  })
 )

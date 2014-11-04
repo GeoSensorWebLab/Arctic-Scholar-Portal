@@ -21,16 +21,55 @@ ArcticScholar.Search = L.Class.extend({
         scrollY: '200px'
     })
 
-  addTo: (map) ->
-    @searchBar.addTo(map)
-    @datatable.addTo(map)
+    @resultMarkers = L.layerGroup()
+
+  addTo: (map, options = {}) ->
+    @map = map
+    @layersControl = options.layersControl
+    @searchBar.addTo(@map)
+    @datatable.addTo(@map)
+
+  _addLayer: (layer) ->
+    if @layersControl isnt undefined
+      @layersControl.addOverlay(layer, 'Results')
+      @map.addLayer(layer)
+    else
+      @map.addLayer(layer)
 
   _addResults: (results) ->
-    console.log results
     @datatable.show()
     @datatable.addRows(results)
 
+    for result in results
+      @resultMarkers.addLayer(@_generateMarker(result))
+
+    @_addLayer(@resultMarkers)
+
+  _generateMarker: (result) ->
+    location = @_getLocation(result)
+    if (location isnt null)
+      L.marker([location.lat, location.lon], {
+        title: result._source.TI
+      })
+    else
+      null
+
+  # Parse location from result. Return null if it is missing or null in any way.
+  _getLocation: (result) ->
+    return null if result._source is undefined
+    return null if result._source.location is undefined
+
+    coords = result._source.location.coordinates
+    return null if coords is undefined
+    return null if coords.length is 0
+
+    return null if (coords[0][0] is null) or (coords[0][1] is null)
+
+    { lat: coords[0][1], lon: coords[0][0] }
+
   _search: (query) ->
+    @resultMarkers.clearLayers()
+
     $.ajax({
       method: 'get'
       url: 'http://scholar.arcticconnect.org:9200/arctic/_search'
