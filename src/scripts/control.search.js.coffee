@@ -69,6 +69,7 @@ ArcticScholar.Search = L.Class.extend({
 
   _search: (query) ->
     @resultMarkers.clearLayers()
+    @datatable.clearTable()
 
     $.ajax({
       method: 'get'
