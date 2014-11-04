@@ -25,7 +25,8 @@
     "proj4": "~2.3.3",
     "proj4leaflet": "https://github.com/kartena/Proj4Leaflet.git#master",
     "DataTables": "~1.10.3",
-    "json2": "*"
+    "json2": "*",
+    "leaflet.markercluster": "https://github.com/GeoCENS/Leaflet.markercluster.git#452cb5c1dbb2022bc32acc8a277a6821410640cc"
   },
   "resolutions": {
     "proj4": "~2.3.3"

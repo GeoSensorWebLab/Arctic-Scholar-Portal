@@ -21,7 +21,9 @@ ArcticScholar.Search = L.Class.extend({
         scrollY: '200px'
     })
 
-    @resultMarkers = L.layerGroup()
+    @resultMarkers = L.markerClusterGroup({
+      removeOutsideVisibleBounds: false
+    })
 
   addTo: (map, options = {}) ->
     @map = map
@@ -41,7 +43,8 @@ ArcticScholar.Search = L.Class.extend({
     @datatable.addRows(results)
 
     for result in results
-      @resultMarkers.addLayer(@_generateMarker(result))
+      marker = @_generateMarker(result)
+      @resultMarkers.addLayer(marker) unless marker is null
 
     @_addLayer(@resultMarkers)
 
