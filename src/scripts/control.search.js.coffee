@@ -109,7 +109,7 @@ ArcticScholar.Search = L.Class.extend({
 
     $.ajax({
       method: 'get'
-      url: 'http://scholar.arcticconnect.org:9200/arctic/_search'
+      url: 'http://scholar.arcticconnect.org/arctic/_search'
       data:
         q: "GH:*#{query}*"
         size: 100
