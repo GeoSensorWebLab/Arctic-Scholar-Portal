@@ -15,6 +15,7 @@ ArcticScholar.Search = L.Class.extend({
         columns: [
           { data: '_source.SISN', title: 'SISN' }
           { data: '_source.TI', title: 'Title', className: 'titleCell' }
+          { data: '_source.DT', title: 'Type' }
           { data: '_source.DM', title: 'Date Modified' }
           { data: '_source.gh.0.GH', title: 'Geographic' }
           { data: '_source.SH.0', title: 'Subject Heading' }
