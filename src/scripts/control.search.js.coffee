@@ -117,6 +117,7 @@ ArcticScholar.Search = L.Class.extend({
         size: 100
     }).done((results) =>
       @_addResults(results.hits.hits)
+      @searchBar.stopActivity()
     )
 })
 
