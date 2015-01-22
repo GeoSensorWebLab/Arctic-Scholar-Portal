@@ -3,6 +3,7 @@
 #= require 'control.searchbar'
 #= require 'control.datatable'
 #= require 'control.search'
+#= require_tree templates
 #= require_self
 
 L.Icon.Default.imagePath = "/images"

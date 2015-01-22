@@ -76,14 +76,15 @@ ArcticScholar.Search = L.Class.extend({
       # Marker click for popup details
       L.DomEvent.on marker, 'click', ->
         div = L.DomUtil.create('div')
-        title = L.DomUtil.create('h1', 'markerTitle', div)
-        title.innerHTML = this.options.data.TI
-        L.DomEvent.on(title, 'click', =>
-          search.highlightResult(this.options.SISN)
+        div.innerHTML = JST["templates/popup"](
+          title: this.options.data.TI
+          description: this.options.data.AB
+          id: this.options.data.SISN
         )
 
-        desc = L.DomUtil.create('p', 'markerDesc', div)
-        desc.innerHTML = this.options.data.AB
+        $(div).children("h1").first().on('click', =>
+          search.highlightResult(this.options.SISN)
+        )
 
         this.bindPopup(div).openPopup()
 
