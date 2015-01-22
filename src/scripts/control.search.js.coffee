@@ -71,6 +71,7 @@ ArcticScholar.Search = L.Class.extend({
         title: result._source.TI
         SISN: result._source.SISN
         data: result._source
+        icon: @_getMarkerIcon(result._source.DT)
       })
 
       # Marker click for popup details
@@ -91,6 +92,12 @@ ArcticScholar.Search = L.Class.extend({
       marker
     else
       null
+
+  _getMarkerIcon: (type) ->
+    switch type
+      when "P" then new L.Icon(ArcticScholar.Icons.Yellow)
+      when "R" then new L.Icon(ArcticScholar.Icons.Orange)
+      else new L.Icon.Default()
 
   # Parse location from result. Return null if it is missing or null in any way.
   _getLocation: (result) ->

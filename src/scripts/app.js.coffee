@@ -1,5 +1,6 @@
 #= require 'autosize'
 #= require 'arcticscholar'
+#= require 'icons'
 #= require 'control.searchbar'
 #= require 'control.datatable'
 #= require 'control.search'
