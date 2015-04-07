@@ -1,8 +1,3 @@
 <h1 class="markerTitle"><%= title %></h1>
 <p class="markerDesc"><%= description %></p>
-<form method="POST" action="http://www.aina.ucalgary.ca/scripts/minisa.dll/170/4/1?SEARCH">
-  <input type="hidden" name="$M_SUMMARY_REPORT" value="ASTIS_SUM_E">
-  <input type="hidden" name="$M_SHOW_ORDER" value="2">
-  <input type="hidden" name="EXPRESS" value="SISN <%= id %>">
-  <input type="submit" value="View in ASTIS">
-</form>
+<a href="http://www.aina.ucalgary.ca/scripts/minisa.dll/144/proe/proe/sisn+<%= id %>?COMMANDSEARCH">View in ASTIS</a>
