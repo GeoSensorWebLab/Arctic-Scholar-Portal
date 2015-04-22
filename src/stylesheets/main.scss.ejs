@@ -21,6 +21,12 @@ body {
 	cursor: pointer;
 }
 
+.markerDesc {
+  max-height: 15em;
+  overflow: auto;
+  border: 1px solid #AAA;
+}
+
 // Override for image assets
 .leaflet-control-layers-toggle {
   background-image: url('<%= asset_path("leaflet/dist/images/layers.png") %>');
