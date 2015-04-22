@@ -128,6 +128,7 @@ ArcticScholar.Search = L.Class.extend({
       data:
         q: "GH:*#{query}*"
         size: 100
+        sort: "SISN:desc"
     }).done((results) =>
       @_addResults(results.hits.hits)
       @searchBar.stopActivity()
