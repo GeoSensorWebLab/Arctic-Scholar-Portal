@@ -70,6 +70,14 @@ ArcticScholar.Search = L.Class.extend({
 
     @_addLayer(@resultMarkers)
 
+  _filterResults: (results) ->
+    valid = []
+    $.each(results, (index, item) ->
+      if item._source?.gh isnt undefined
+        valid.push(item)
+    )
+    valid
+
   _generateMarker: (result) ->
     search = this
 
@@ -134,7 +142,7 @@ ArcticScholar.Search = L.Class.extend({
         size: 100
         sort: "SISN:desc"
     }).done((results) =>
-      @_addResults(results.hits.hits)
+      @_addResults(@_filterResults(results.hits.hits))
       @searchBar.stopActivity()
     )
 })
