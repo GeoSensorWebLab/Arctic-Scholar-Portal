@@ -16,8 +16,17 @@ ArcticScholar.Search = L.Class.extend({
           { data: '_source.SISN', title: 'SISN' }
           { data: '_source.TI', title: 'Title', className: 'titleCell' }
           { data: '_source.DT', title: 'Type' }
-          { data: '_source.DA', title: 'Date Added' }
-          { data: '_source.gh.0.GH', title: 'Geographic' }
+          { data: '_source.DA', title: 'Date&nbsp;Added' }
+          { # Geographic Column
+            data: (row, type, set) ->
+              if (type is 'display' and row?._source?.gh?)
+                row._source.gh.map((item) ->
+                  item.GH
+                ).join(", ")
+              else
+                ""
+            title: "Geographic"
+          }
           { # Handle possible null values in SH array
             data: (row, type, set) ->
               if (type is 'display' and row?._source?.SH?[0])
