@@ -27,13 +27,6 @@ ArcticScholar.Search = L.Class.extend({
                 ""
             title: "Geographic"
           }
-          { # Handle possible null values in SH array
-            data: (row, type, set) ->
-              if (type is 'display' and row?._source?.SH?[0])
-                row._source.SH[0]
-              else
-                ""
-          }
         ]
 
         scrollCollapse: true
