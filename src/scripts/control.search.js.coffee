@@ -138,7 +138,8 @@ ArcticScholar.Search = L.Class.extend({
       method: 'get'
       url: 'http://scholar.arcticconnect.org/arctic/_search'
       data:
-        q: "GH:*#{query}*"
+        default_operator: "AND"
+        q: "GH:#{query}"
         size: 100
         sort: "SISN:desc"
     }).done((results) =>
