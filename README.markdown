@@ -48,4 +48,8 @@ This tells the nginx instance running in Dokku to redirect requests to http://ar
 
 ## License
 
-Copyright GeoSensor Web Lab, James Badger, 2013-2015. All rights reserved.
+See LICENSE.
+
+## Authors
+
+James Badger <jpbadger@ucalgary.ca>
