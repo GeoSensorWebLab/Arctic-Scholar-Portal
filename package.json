@@ -42,6 +42,7 @@
     "gulp-util": "^3.0.0",
     "jade": "^1.5.0",
     "jquery": "^1.11.3",
+    "json2": "^0.4.0",
     "leaflet": "^0.7.7",
     "leaflet.markercluster": "^0.4.0",
     "logfmt": "^1.1.2",
