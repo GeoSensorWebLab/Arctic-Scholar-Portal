@@ -13,8 +13,7 @@ assets = assets({
   paths: [
     'src/scripts',
     'src/stylesheets',
-    'src/views',
-    'bower_components'
+    'src/views'
     ],
   buildDir: 'dist',
   gzip: true

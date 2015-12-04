@@ -15,8 +15,7 @@ gulp.task('express', function() {
       'src/scripts',
       'src/images',
       'src/stylesheets',
-      'src/views',
-      'bower_components'
+      'src/views'
       ],
     buildDir: 'dist',
     gzip: true
