@@ -18,7 +18,7 @@ var styles = compileSass([sassDir], 'main.scss', 'app.css');
 
 // Process all the JavaScript.
 // First we use babel to convert the ES6 to ES5 for web browsers.
-scripts = babel(scripts);
+scripts = babel(scripts, { browserPolyfill: true });
 // Then use browserify to handle any `require` statements and automatically
 // insert the required library inline.
 scripts = browserify(scripts, {
