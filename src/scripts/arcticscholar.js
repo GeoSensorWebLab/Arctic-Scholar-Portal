@@ -1,3 +1,3 @@
 window.ArcticScholar = {
   Control: {}
-}
+};
