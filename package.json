@@ -41,6 +41,7 @@
     "gulp-load-plugins": "^0.5.3",
     "gulp-util": "^3.0.0",
     "jade": "^1.5.0",
+    "leaflet": "^0.7.7",
     "logfmt": "^1.1.2",
     "mincer": "^1.1.2",
     "node-sass": "^3.2.0",

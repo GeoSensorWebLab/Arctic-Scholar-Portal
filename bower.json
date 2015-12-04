@@ -21,7 +21,6 @@
     "backbone.hal": "*",
     "marionette": "~2.1.0",
     "polarmap.js": "https://github.com/GeoSensorWebLab/polarmap.js.git",
-    "leaflet": "~0.7.3",
     "proj4": "~2.3.3",
     "proj4leaflet": "https://github.com/kartena/Proj4Leaflet.git#master",
     "DataTables": "~1.10.3",
