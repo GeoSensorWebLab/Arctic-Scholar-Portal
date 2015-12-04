@@ -1,5 +1,4 @@
-var coffee    = require('coffee-script/register'),
-    express   = require('express'),
+var express   = require('express'),
     assets    = require('connect-assets'),
     logfmt    = require('logfmt'),
     app       = express();

@@ -1,6 +1,5 @@
 var gulp      = require('gulp'),
     // this is an arbitrary object that loads all gulp plugins in package.json.
-    coffee    = require('coffee-script/register'),
     $         = require("gulp-load-plugins")(),
     express   = require('express'),
     assets    = require('connect-assets'),
