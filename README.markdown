@@ -4,15 +4,15 @@ The Arctic Scholar Portal is an integration of the Arctic Scholar backend servic
 
 ## Development Environment
 
-The app is JavaScript/CoffeeScript and runs under Node.js. To start, install the base Node packages:
+The app is JavaScript and runs under Node.js. To start, install the base Node packages:
 
     $ npm install
 
-Now you can start the local development server with Gulp:
+Now you can start the local development server with Broccoli:
 
-    $ gulp
+    $ broccoli serve
 
-That's all. The server is now running at [http://localhost:1337/](http://localhost:1337/).
+That's all. The server is now running at [http://localhost:4200/](http://localhost:4200/).
 
 ## Testing
 
