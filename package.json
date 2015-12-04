@@ -49,6 +49,7 @@
     "logfmt": "^1.1.2",
     "mincer": "^1.1.2",
     "node-sass": "^3.2.0",
+    "polarmap": "^1.0.1",
     "proj4": "^2.3.12",
     "proj4leaflet": "https://github.com/kartena/Proj4Leaflet.git#master",
     "request": "^2.40.0",
