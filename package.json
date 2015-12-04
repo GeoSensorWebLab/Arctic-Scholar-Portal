@@ -50,6 +50,7 @@
     "mincer": "^1.1.2",
     "node-sass": "^3.2.0",
     "proj4": "^2.3.12",
+    "proj4leaflet": "https://github.com/kartena/Proj4Leaflet.git#master",
     "request": "^2.40.0",
     "rimraf": "^2.4.4",
     "tiny-lr": "0.0.9",
