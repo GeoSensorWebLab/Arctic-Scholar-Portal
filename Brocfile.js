@@ -3,6 +3,7 @@
 // preview server.
 var _ = require('underscore');
 var babel = require('broccoli-babel-transpiler');
+var browserify = require('broccoli-browserify');
 var compileSass = require('broccoli-sass');
 var funnel = require('broccoli-funnel');
 var jade = require('broccoli-jade');
@@ -16,8 +17,19 @@ var scripts = 'src/scripts';
 var styles = compileSass([sassDir], 'main.scss', 'app.css');
 
 // Process all the JavaScript.
-// We use babel to convert the ES6 to ES5 for web browsers.
+// First we use babel to convert the ES6 to ES5 for web browsers.
 scripts = babel(scripts);
+// Then use browserify to handle any `require` statements and automatically
+// insert the required library inline.
+scripts = browserify(scripts, {
+  entries: ['./app.js'],
+  outputFile: 'app.js'
+});
+
+// Local assets
+var assets = funnel('src/images', {
+  destDir: 'images'
+});
 
 // This builds all the Javascript Templates (JST) into JS files where the
 // templates have been wrapped in functions using underscore's template system.
@@ -137,8 +149,8 @@ var faStyles = funnel('node_modules/font-awesome/css', {
 
 var views = jade('src/views');
 
-module.exports = mergeTrees([styles, scripts, views, templates,
+module.exports = mergeTrees([styles, scripts, views, templates, assets,
   leaflet, leafletStyles, leafletAssets, cluster, clusterStyles, jquery, json2,
   dataTables, dataTablesStyles, dataTablesAssets, proj4, proj4leaflet, polarmap,
   polarmapStyles, underscore, backbone, marionette, bootstrapStyles, faFonts,
-  faStyles]);
+  faStyles], { overwrite: true });

@@ -1,12 +1,10 @@
-//= require 'autosize'
-//= require 'arcticscholar'
-//= require 'icons'
-//= require 'control.searchbar'
-//= require 'control.datatable'
-//= require 'control.legend'
-//= require 'control.search'
-//= require_tree templates
-//= require_self
+import './autosize';
+import './arcticscholar';
+import './icons';
+import './control.searchbar';
+import './control.datatable';
+import './control.legend';
+import './control.search';
 
 L.Icon.Default.imagePath = "/images";
 
