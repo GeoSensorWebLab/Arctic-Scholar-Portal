@@ -107,7 +107,7 @@ ArcticScholar.Search = L.Class.extend({
 
     var location = this._getLocation(result);
     if (location !== null) {
-      marker = L.marker([location.lat, location.lon], {
+      var marker = L.marker([location.lat, location.lon], {
         title: result._source.TI,
         SISN: result._source.SISN,
         data: result._source,
