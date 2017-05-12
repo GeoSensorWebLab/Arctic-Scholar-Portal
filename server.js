@@ -19,8 +19,9 @@ function clean(directory) {
 
 // Build application
 function build(outputDir) {
+  fs.mkdirSync('tmp');
   var node = broccoli.loadBrocfile();
-  var builder = new broccoli.Builder(node, { tmpdir: './tmp' });
+  var builder = new broccoli.Builder(node, { tmpdir: 'tmp' });
 
   return builder.build()
   .then(function() {
