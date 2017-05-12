@@ -6,9 +6,9 @@ import './control.datatable';
 import './control.legend';
 import './control.search';
 
-L.Icon.Default.imagePath = "/images";
-
 $(function() {
+  L.Icon.Default.imagePath = "/images";
+
   Autosize.enable();
   window.pMap = polarMap('app');
 
