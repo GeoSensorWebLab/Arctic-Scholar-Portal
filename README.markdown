@@ -34,9 +34,9 @@ Dokku will then build and deploy a server, automatically restarting the existing
 
 There are also some configuration options that may be useful with Dokku. For example, defining the default host:
 
-    $ ssh dokku@sarcee domains:set arctic-scholar-portal arcticscholar.arcticconnect.org
+    $ ssh dokku@sarcee domains:set arctic-scholar-portal arcticscholar.arcticconnect.ca
 
-This tells the nginx instance running in Dokku to redirect requests to http://arcticscholar.arcticconnect.org to this Node.js server.
+This tells the nginx instance running in Dokku to redirect requests to http://arcticscholar.arcticconnect.ca to this Node.js server.
 
 ## License
 
