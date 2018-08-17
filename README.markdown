@@ -20,7 +20,7 @@ TODO
 
 ## Deploying
 
-This app is configured to run on Heroku-like platforms. This makes deployment as simple as a `git push`. In this instance, we are using [Dokku](https://github.com/progrium/dokku).
+This app is configured to run on Heroku-like platforms. This makes deployment as simple as a `git push`. In this instance, we are using [Dokku](https://github.com/progrium/dokku). In the following examples, `sarcee` refers to an SSH alias for the cloud instance hosting the application.
 
 Start by setting up a Dokku instance on a server. Once it is online, you should be able to add it as a remote repository, and tell Dokku the app's name is `arctic-scholar-portal`:
 
@@ -34,7 +34,7 @@ Dokku will then build and deploy a server, automatically restarting the existing
 
 There are also some configuration options that may be useful with Dokku. For example, defining the default host:
 
-    $ ssh dokku@sarcee domains:set arctic-scholar-portal arcticscholar.arcticconnect.ca
+    $ ssh dokku@sarcee domains:add arctic-scholar-portal records.arcticconnect.ca records.arcticconnect.org arctic-scholar.gswlab.ca
 
 This tells the nginx instance running in Dokku to redirect requests to http://arcticscholar.arcticconnect.ca to this Node.js server.
 
