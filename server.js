@@ -67,6 +67,7 @@ function serve() {
   });
 }
 Q(clean("public"))
+.then(clean("tmp"))
 .then(function() {
   return build("public");
 })
