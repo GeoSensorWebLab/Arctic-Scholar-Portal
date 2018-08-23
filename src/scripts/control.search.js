@@ -118,7 +118,7 @@ ArcticScholar.Search = L.Class.extend({
       // Marker click for popup details
       L.DomEvent.on(marker, 'click', function() {
         var div = L.DomUtil.create('div');
-        div.innerHTML = JST["popup"]({
+        div.innerHTML = App.Templates["popup"]({
           title: this.options.data.TI,
           description: this.options.data.AB,
           id: this.options.data.SISN
