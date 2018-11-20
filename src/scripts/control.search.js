@@ -181,7 +181,7 @@ ArcticScholar.Search = L.Class.extend({
     var self = this;
     $.ajax({
       method: 'get',
-      url: 'http://scholar.arcticconnect.ca/arctic/_search',
+      url: '//scholar.arcticconnect.ca/arctic/_search',
       data: {
         default_operator: "AND",
         q: "GH:" + query,
