@@ -1,9 +1,11 @@
 // This is the Brocfile. It sets up all the assets from the input JS/CSS/images
 // and so on and converts them to static assets in the output directory or
 // preview server.
+var fs             = require('fs');
 var babel          = require('broccoli-babel-transpiler');
 var broccoliSource = require('broccoli-source');
-var compileSass    = require('broccoli-sass');
+var Sass           = require('sass');
+var SassSourceMaps = require('broccoli-sass-source-maps');
 var concat         = require('broccoli-concat');
 var gzip           = require('broccoli-gzip');
 var handlebars     = require('broccoli-handlebars-precompiler');
@@ -15,6 +17,12 @@ var UnwatchedDir   = broccoliSource.UnwatchedDir;
 var WatchedDir     = broccoliSource.WatchedDir;
 var watchify       = require('broccoli-watchify');
 
+// Create tmp directory for builds
+if (!fs.existsSync("tmp")) {
+  fs.mkdirSync("tmp");
+}
+
+const compileSass = SassSourceMaps(Sass);
 
 // Covert main.scss stylesheet to app.css stylesheet in output directory
 var styles = new compileSass([new WatchedDir('src/stylesheets')], 'main.scss', 'app.css');

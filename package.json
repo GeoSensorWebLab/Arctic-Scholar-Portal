@@ -5,8 +5,8 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": "6.10.x",
-    "npm": "^4"
+    "node": "12",
+    "npm": "*"
   },
   "directories": {
     "test": "test"
@@ -37,7 +37,7 @@
     "broccoli-merge-trees": "^2.0.0",
     "broccoli-mincer": "0.0.5",
     "broccoli-pug": "0.0.4",
-    "broccoli-sass": "^0.7.0",
+    "broccoli-sass-source-maps": "^4.0.0",
     "broccoli-slow-trees": "^2.0.0",
     "broccoli-source": "^1.1.0",
     "broccoli-uglify-sourcemap": "^1.1.1",
@@ -54,12 +54,12 @@
     "json2": "^0.4.0",
     "leaflet": "^0.7.7",
     "leaflet.markercluster": "^0.4.0",
-    "node-sass": "^4.5.2",
     "polarmap": "^1.2.1",
     "proj4": "^2.3.12",
     "proj4leaflet": "~0.7.1",
     "q": "^1.4.1",
     "rimraf": "^2.4.4",
+    "sass": "^1.24.4",
     "tiny-lr": "^1.0.4",
     "underscore": "^1.8.3"
   }
